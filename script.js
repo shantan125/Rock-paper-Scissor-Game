@@ -20,7 +20,6 @@ choices.forEach((choice) => {
         if (yourturn === computerturn) {
             msg.innerText = "Draw";
         } else if (
-            (yourturn === 'rock' && computerturn === 'paper') ||
             (yourturn === 'rock' && computerturn === 'scissor') ||
             (yourturn === 'paper' && computerturn === 'rock') ||
             (yourturn === 'scissor' && computerturn === 'paper')
