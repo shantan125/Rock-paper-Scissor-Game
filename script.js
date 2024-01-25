@@ -37,9 +37,15 @@ choices.forEach((choice) => {
         compscorepara.textContent = compscore;
     });
 });
-resetbtn.addEventListener("click",()=>{
-     userscorepara.textContent = 0;
-        compscorepara.textContent = 0;
-        msg.innerText="Play your move";
-});
 
+resetbtn.addEventListener("click", () => {
+    // Reset scores
+    userscore = 0;
+    compscore = 0;
+
+    // Update score display
+    userscorepara.textContent = userscore;
+    compscorepara.textContent = compscore;
+
+    msg.innerText = "Play your move";
+});
