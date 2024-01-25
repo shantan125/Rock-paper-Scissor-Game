@@ -1,28 +1,28 @@
-let choices = document.querySelectorAll(".choice");
-let msg = document.querySelector("#msg");
+const choices = document.querySelectorAll(".choice");
+const msg = document.getElementById("msg");
 let userscore = 0;
 let compscore = 0;
-let userscorepara = document.querySelector("#you-score");
-let compscorepara = document.querySelector("#comp-score");
-let resetbtn = document.querySelector("#reset");
+const userscorepara = document.getElementById("you-score");
+const compscorepara = document.getElementById("comp-score");
+const resetbtn = document.getElementById("reset");
 
 const compturn = () => {
-    const options = ["rock", "paper", "scissor"];
+    const options = ["rock", "paper", "scissors"];
     const randchoice = Math.floor(Math.random() * 3);
     return options[randchoice];
 };
 
 choices.forEach((choice) => {
     choice.addEventListener("click", () => {
-        let yourturn = choice.getAttribute("id");
+        let yourturn = choice.id;
         let computerturn = compturn();
 
         if (yourturn === computerturn) {
             msg.innerText = "Draw";
         } else if (
-            (yourturn === 'rock' && computerturn === 'scissor') ||
-            (yourturn === 'paper' && computerturn === 'rock') ||
-            (yourturn === 'scissor' && computerturn === 'paper')
+            (yourturn === "rock" && computerturn === "scissors") ||
+            (yourturn === "paper" && computerturn === "rock") ||
+            (yourturn === "scissors" && computerturn === "paper")
         ) {
             msg.innerText = "You won the match";
             userscore++;
@@ -38,13 +38,9 @@ choices.forEach((choice) => {
 });
 
 resetbtn.addEventListener("click", () => {
-    // Reset scores
     userscore = 0;
     compscore = 0;
-
-    // Update score display
-    userscorepara.textContent = userscore;
-    compscorepara.textContent = compscore;
-
+    userscorepara.textContent = "";
+    compscorepara.textContent = "";
     msg.innerText = "Play your move";
 });
